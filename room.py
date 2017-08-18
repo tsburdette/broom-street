@@ -1,4 +1,6 @@
-class Room():
+from actor import Actor
+
+class Room(Actor):
     def __init__(self, room_id, room_info):
         self.room_id = room_id
         self.title = room_info['title']
@@ -18,3 +20,4 @@ class Room():
 
     def get_next_room(self, direction):
         return self.exits[direction]
+
