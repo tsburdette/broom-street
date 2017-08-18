@@ -3,3 +3,6 @@ class Actor():
         method = getattr(self, action.method.__name__, None)
         if method:
             method(**kwargs)
+
+    def get_description(self):
+        print(self.description or "\nThis thing is beyond description!\n")
