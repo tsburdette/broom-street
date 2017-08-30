@@ -1,26 +1,23 @@
 import json
 from room import Room
+from input_parser import ParsedLine
 
-room_id = 'STREET'
-world = {}
+class Game:
+    def __init__(self, seed_file, room_id):
+        with open(seed_file) as data:
+            self.world = json.load(data)
+        self.current_room = Room(room_id, world[room_id])
+        self.victory = False
 
-def game_setup():
-    # setup initial room/vars
-    with open('rooms.json') as rooms:
-        global world
-        world = json.load(rooms)
-    game_loop()
+    def change_room(direction):
+        self.current_room = current_room.get_exit(direction)
 
 def game_loop():
+    game_state = Game('rooms.json', 'STREET')
     while True:
-        current_room = Room(room_id, world[room_id])
-        print(current_room)
+        print(game_state.room)
         action = input("\n> ")
-        if action in ["WEST", "EAST"]:
-            global room_id
-            room_id = current_room.get_next_room(action)
-        else:
-            print("That is not a valid action.\n")
+        parsed_line = ParsedLine(action)
 
 if __name__ == "__main__":
-    game_setup()
+    game_loop()
