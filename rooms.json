@@ -2,15 +2,15 @@
 	"STREET" : {
 		"title" : "Broom Street",
 		"description" : "A quiet neighborhood street out of the way of the usual city hustle and bustle.",
-		"objects" : "",
-		"people" : { "Lisa, the Witch" : "LISA" },
+		"inventory" : [ "BUCKET" ],
+		"people" : [ "LISA" ],
 		"exits" : { "WEST" : "STATION" }
 	},
 	"STATION" : {
 		"title" : "Obakegawa Train Station",
 		"description" : "The train platform is supposedly haunted, but has anyone actually seen a ghost here?",
-		"objects" : "",
-		"people" : { "Hector, the Conductor" : "HECTOR" },
+		"inventory" :[ ],
+		"people" : [ "HECTOR" ],
 		"exits" : { "EAST" : "STREET" }
 	}
 }

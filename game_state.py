@@ -11,13 +11,19 @@ class Game:
 
     def change_room(self, arg_dict):
         direction = arg_dict['direction']
-        new_room_id = self.current_room.get_next_room(direction)
-        self.current_room = Room(new_room_id, self.world[new_room_id])
+        try:
+            new_room_id = self.current_room.get_next_room(direction)
+            self.current_room = Room(new_room_id, self.world[new_room_id])
+        except:
+            print("Can't go {}.\n".format(arg_dict['direction']))
 
     def print_look(self, arg_dict):
         target_alias = arg_dict['target']
-        target = self.find_target(target_alias)
-        print(target.get_description())
+        try:
+            target = self.find_target(target_alias)
+            print(target.get_description() + "\n")
+        except:
+            print("Can't find {}.\n".format(target_alias))
 
     def find_target(self, target_alias):
         target_queue = Queue()

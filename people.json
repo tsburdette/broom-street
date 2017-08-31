@@ -1,0 +1,16 @@
+{
+	"LISA" : {
+		"name" : "Lisa, the Witch",
+		"idle_text" : "is sweeping the front of her shop dutifully with a wiry broom.",
+		"description" : "Lisa is a witch who manages her shop.",
+		"inventory" : [],
+		"aliases" : [ "LISA", "LISA, THE WITCH", "THE WITCH", "WITCH" ]
+	},
+	"HECTOR" : {
+		"name" : "Hector, the Conductor",
+		"idle_text" : "seems to be counting the bricks in the walls. He must be bored.",
+		"description" : "Hector is always working when you come to the station. Does he ever go home?",
+		"inventory" : [],
+		"aliases" : [ "HECTOR", "HECTOR, THE CONDUCTOR", "THE CONDUCTOR", "CONDUCTOR" ]
+	}
+}
