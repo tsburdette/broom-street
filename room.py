@@ -8,6 +8,7 @@ class Room(Actor):
         self.people = room_info['people']
         self.objects = room_info['objects']
         self.exits = room_info['exits']
+        self.aliases = ["ROOM", "HERE"]
 
     def __str__(self):
         # people should be a list of names in the room? Maybe return a person's idle sentence?
@@ -20,4 +21,3 @@ class Room(Actor):
 
     def get_next_room(self, direction):
         return self.exits[direction]
-

@@ -1,4 +1,4 @@
-from room import Room
+from game_state import Game
 
 class Action():
     def __init__(self, method, **kwargs):
@@ -7,8 +7,8 @@ class Action():
 
 class GoAction(Action):
     def __init__(self, direction):
-        super().__init__(method=Room.get_next_room, direction=direction)
+        super().__init__(method=Game.change_room, direction=direction)
 
 class LookAction(Action):
-    def __init__(self):
-        super().__init__(method=Actor.get_description)
+    def __init__(self, target):
+        super().__init__(method=Game.print_look, target=target)
