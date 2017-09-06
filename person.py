@@ -19,5 +19,31 @@ class Person(Actor):
     def get_description(self):
         return "{}, {}".format(self.name, self.description)
 
+    def dialogue_mode(self):
+        dialogue_file_path = "./dialogue/{}.json".format(self.person_id)
+        with open(dialogue_file_path) as dialogue_file:
+            dialogue_tree = json.load(dialogue_file)
+        dialogue_line = dialogue_tree[""]
+        while dialogue_line["responses"]:
+            print("\n{name} says, \"{line}\"\n".format(
+                name=self.name,
+                line=dialogue_line["text"]))
+            for response_id, response in dialogue_line["responses"].items():
+                print("{response_id}. {response}".format(
+                    response_id=response_id,
+                    response=response["text"]))
+            choice = input("\n> ")
+            if choice in dialogue_line["responses"].keys():
+                responses = dialogue_line["responses"]
+                print(choice)
+                chosen_line = reponses[choice]
+                print(chosen_line)
+                new_id = chosen_line["id"]
+                print(new_id)
+                dialogue_line = dialogue_tree[new_id]
+                print(dialogue_line)
+            else:
+                print("Invalid choice. Please choose again.")
+
     def get_subactors(self):
         return self.inventory

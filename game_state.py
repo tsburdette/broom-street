@@ -25,6 +25,14 @@ class Game:
         except:
             print("Can't find {}.\n".format(target_alias))
 
+    def initiate_dialogue(self, arg_dict):
+        target_alias = arg_dict['target']
+        try:
+            target = self.find_target(target_alias)
+            target.dialogue_mode()
+        except:
+            print("Can't find {}.\n".format(target_alias))
+
     def find_target(self, target_alias):
         target_queue = Queue()
         target_queue.put(self.current_room)

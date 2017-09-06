@@ -6,3 +6,6 @@ class Actor():
 
     def get_description(self):
         print(self.description or "\nThis thing is beyond description!\n")
+
+    def fetch_dialogue(self):
+        print("You would look awfully silly talking to this.")

@@ -1,0 +1,25 @@
+{
+    "" : {
+        "text" : "Hi! I'm Lisa!",
+        "responses" : {
+            "1" : {
+                "id" : "HELLO1",
+                "text" : "Hi, Lisa!",
+                "flags" : []
+            },
+            "2" : {
+                "id" : "HELLO2",
+                "text" : "H-Hey... My name is Izumi.",
+                "flags" : ["introduced"]
+            }
+        }
+    },
+    "HELLO1" : {
+        "text" : "I'm a witch!",
+        "responses" : {}
+    },
+    "HELLO2" : {
+        "text" : "Nice to meet you, Izumi!",
+        "responses" : {}
+    }
+}
