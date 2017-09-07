@@ -1,4 +1,5 @@
 import json
+import sys
 from queue import Queue
 from room import Room
 
@@ -43,6 +44,9 @@ class Game:
             else:
                 for sub_item in possible_match.get_subactors():
                     target_queue.put(sub_item)
+
+    def quit(self, args):
+        sys.exit()
 
     def do_action(self, action):
         method = getattr(self, action.method.__name__, None)

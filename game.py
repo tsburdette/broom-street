@@ -7,11 +7,8 @@ def game_loop():
     while True:
         print(game_state.current_room)
         action = input("\n> ")
-        try:
-            parsed_line = ParsedLine(action)
-            game_state.do_action(parsed_line.action)
-        except:
-            print("Cannot do that.")
+        parsed_line = ParsedLine(action)
+        game_state.do_action(parsed_line.action)
 
 if __name__ == "__main__":
     game_loop()

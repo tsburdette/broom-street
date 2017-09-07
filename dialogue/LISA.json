@@ -1,9 +1,19 @@
 {
-    "" : {
+    "<ID>" : {
+        "text" : "<DIALOGUE>",
+        "responses" : {
+            "<NUM>" : {
+                "id" : "<ID>",
+                "text" : "<DIALOGUE>",
+                "flags" : []
+            }
+        }
+    },
+    "START" : {
         "text" : "Hi! I'm Lisa!",
         "responses" : {
             "1" : {
-                "id" : "HELLO1",
+                "id" : "START",
                 "text" : "Hi, Lisa!",
                 "flags" : []
             },

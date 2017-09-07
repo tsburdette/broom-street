@@ -20,30 +20,40 @@ class Person(Actor):
         return "{}, {}".format(self.name, self.description)
 
     def dialogue_mode(self):
+        # Open dialog file for the given person
         dialogue_file_path = "./dialogue/{}.json".format(self.person_id)
         with open(dialogue_file_path) as dialogue_file:
+            # Better way to do this than loading the person's entire dialogue?
             dialogue_tree = json.load(dialogue_file)
-        dialogue_line = dialogue_tree[""]
-        while dialogue_line["responses"]:
+        # Should find a way to start at a new point if flag is set.
+        dialogue_id = "START"
+        while dialogue_id is not "END":
+            # get dialogue_line from tree (graph?)
+            dialogue_line = dialogue_tree[dialogue_id]
+            # Print NPC dialogue first
             print("\n{name} says, \"{line}\"\n".format(
                 name=self.name,
                 line=dialogue_line["text"]))
-            for response_id, response in dialogue_line["responses"].items():
-                print("{response_id}. {response}".format(
-                    response_id=response_id,
-                    response=response["text"]))
-            choice = input("\n> ")
-            if choice in dialogue_line["responses"].keys():
-                responses = dialogue_line["responses"]
-                print(choice)
-                chosen_line = reponses[choice]
-                print(chosen_line)
-                new_id = chosen_line["id"]
-                print(new_id)
-                dialogue_line = dialogue_tree[new_id]
-                print(dialogue_line)
+            # Give all response options
+            if dialogue_line["responses"]:
+                for response_id, response in dialogue_line["responses"].items():
+                    print("{response_id}. {response}".format(
+                        response_id=response_id,
+                        response=response["text"]))
+                # Assume bad input
+                is_valid_choice = False
+                while not is_valid_choice:
+                    # Get choice and check if valid
+                    choice = input("\n> ")
+                    if choice in dialogue_line["responses"].keys():
+                        is_valid_choice = True
+                        responses = dialogue_line["responses"]
+                        chosen_line = responses[choice]
+                        dialogue_id = chosen_line["id"]
+                    else:
+                        print("Invalid choice. Please choose again.")
             else:
-                print("Invalid choice. Please choose again.")
+                dialogue_id = "END"
 
     def get_subactors(self):
         return self.inventory

@@ -4,7 +4,10 @@ class ParsedLine:
     action_list = {
             "GO" : actions.GoAction,
             "LOOK" : actions.LookAction,
-            "TALK" : actions.TalkAction
+            "TALK" : actions.TalkAction,
+#            "GET" : actions.GetAction,
+#            "HELP" : actions.HelpAction,
+            "QUIT" : actions.QuitAction
             }
 
     def __init__(self, input_string):

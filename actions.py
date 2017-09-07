@@ -18,3 +18,7 @@ class TalkAction(Action):
     def __init__(self, target):
         target_match = re.match(r'(?:TO )?([\w ]+)', target).group(1)
         super().__init__(method=Game.initiate_dialogue, target=target_match)
+
+class QuitAction(Action):
+    def __init__(self, args):
+        super().__init__(method=Game.quit)
