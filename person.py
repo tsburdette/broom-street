@@ -8,7 +8,7 @@ class Person(Actor):
         self.name = person_info['name']
         self.idle_text = person_info['idle_text']
         self.description = person_info['description']
-        with open('items.json') as item_data:
+        with open('game_data/items.json') as item_data:
             items = json.load(item_data)
             self.inventory = [Item(item_id, items[item_id]) for item_id in person_info['inventory']]
         self.aliases = person_info['aliases']
@@ -21,7 +21,7 @@ class Person(Actor):
 
     def dialogue_mode(self):
         # Open dialog file for the given person
-        dialogue_file_path = "./dialogue/{}.json".format(self.person_id)
+        dialogue_file_path = "game_data/dialogue/{}.json".format(self.person_id)
         with open(dialogue_file_path) as dialogue_file:
             # Better way to do this than loading the person's entire dialogue?
             dialogue_tree = json.load(dialogue_file)

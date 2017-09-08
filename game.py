@@ -3,7 +3,7 @@ from input_parser import ParsedLine
 from game_state import Game
 
 def game_loop():
-    game_state = Game('rooms.json', 'STREET')
+    game_state = Game('game_data/rooms.json', 'STREET')
     while True:
         print(game_state.current_room)
         action = input("\n> ")

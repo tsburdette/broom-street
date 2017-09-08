@@ -34,6 +34,9 @@ class Game:
         except:
             print("Can't find {}.\n".format(target_alias))
 
+    def get_item(self, arg_dict):
+        pass
+
     def find_target(self, target_alias):
         target_queue = Queue()
         target_queue.put(self.current_room)
