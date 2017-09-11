@@ -1,7 +1,7 @@
 import json
 import sys
 from queue import Queue
-from room import Room
+from actors import Room
 
 class Game:
     def __init__(self, seed_file, room_id):
@@ -28,14 +28,16 @@ class Game:
 
     def initiate_dialogue(self, arg_dict):
         target_alias = arg_dict['target']
-        try:
-            target = self.find_target(target_alias)
-            target.dialogue_mode()
-        except:
-            print("Can't find {}.\n".format(target_alias))
+#        try:
+        target = self.find_target(target_alias)
+        target.dialogue_mode()
+#        except:
+#            print("Can't find {}.\n".format(target_alias))
 
     def get_item(self, arg_dict):
-        pass
+        source_alias = arg_dict['source'] or 'HERE'
+        source = self.find_target(source_alias)
+        player.add_to_inventory(source.remove_item())
 
     def find_target(self, target_alias):
         target_queue = Queue()

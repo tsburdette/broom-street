@@ -22,7 +22,7 @@ class TalkAction(Action):
 class GetAction(Action):
     def __init__(self, args):
         match = re.match(r'(?P<item>.*)(?: FROM )(?(1)(?P<source>.*))', args) or re.match(r'(P<item>.+)', args)
-        super().__init__(method=Game.get_item, item=match.group('item'),
+        super().__init__(method=Game.get_item, target=match.group('item'),
                 source=match.group('source') if len(match.groups()) > 1 else None)
 
 class QuitAction(Action):

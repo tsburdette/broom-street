@@ -2,6 +2,7 @@
 	"BUCKET" : {
 		"name" : "A bucket of water.",
 		"description" : "This bucket usually sits below a leaky drain on the roof of Lisa's shop. It's full of water.",
+        "inventory" : [],
 		"aliases" : [ "BUCKET", "A BUCKET", "BUCKET OF WATER", "A BUCKET OF WATER" ]
 	}
 }
