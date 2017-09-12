@@ -12,6 +12,7 @@ class Actor():
             self.aliases = actor_info['aliases']
         except KeyError:
             self.aliases = None
+        self.is_container = False
 
     def do_action(self, action, **kwargs):
         method = getattr(self, action.method.__name__, None)
@@ -19,7 +20,7 @@ class Actor():
             method(**kwargs)
 
     def get_description(self):
-        print(self.description or "\nThis thing is beyond description!\n")
+        print(self.description)
 
     def fetch_dialogue(self):
         print("You would look awfully silly talking to this.")
@@ -27,8 +28,17 @@ class Actor():
     def remove_item(self, item_alias):
         for item in self.inventory:
             if item_alias in item.aliases:
+                self.inventory.remove(item)
+                print('Got {} from {}.\n'.format(item.name, self.name))
                 return item
         return None
+
+    def add_item(self, item):
+        if self.is_container:
+            self.inventory.append(item)
+            print('Put {} in {}'.format(item.name, self.name))
+        else:
+            print('You can\'t put that there!')
 
 class Room(Actor):
     def __init__(self, room_id, room_info):
@@ -39,6 +49,7 @@ class Room(Actor):
                                 for person_id in room_info['people']]
         self.exits = room_info['exits']
         self.aliases = ["ROOM", "HERE"]
+        self.is_container = True
 
     def __str__(self):
         # people should be a list of names in the room? Maybe return a person's idle sentence?
@@ -63,6 +74,7 @@ class Person(Actor):
     def __init__(self, person_id, person_info):
         super().__init__(actor_id=person_id, actor_info=person_info)
         self.idle_text = person_info['idle_text']
+        self.is_container = True
 
     def __str__(self):
         return "{} {}".format(self.name, self.idle_text)
@@ -112,6 +124,7 @@ class Person(Actor):
 class Item(Actor):
     def __init__(self, item_id, item_info):
         super().__init__(actor_id=item_id, actor_info=item_info)
+        self.is_container = item_info['is_container']
 
     def __str__(self):
         return self.name
@@ -120,4 +133,4 @@ class Item(Actor):
         return "{}: {}".format(self.name, self.description)
 
     def get_subactors(self):
-        return []
+        return self.inventory

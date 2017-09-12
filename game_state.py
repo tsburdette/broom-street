@@ -2,12 +2,14 @@ import json
 import sys
 from queue import Queue
 from actors import Room
+from player import Player
 
 class Game:
     def __init__(self, seed_file, room_id):
         with open(seed_file) as data:
             self.world = json.load(data)
         self.current_room = Room(room_id, self.world[room_id])
+        self.player = Player()
         self.victory = False
 
     def change_room(self, arg_dict):
@@ -22,7 +24,7 @@ class Game:
         target_alias = arg_dict['target']
         try:
             target = self.find_target(target_alias)
-            print(target.get_description() + "\n")
+            print('{}\n'.format(target.get_description()))
         except:
             print("Can't find {}.\n".format(target_alias))
 
@@ -37,10 +39,11 @@ class Game:
     def get_item(self, arg_dict):
         source_alias = arg_dict['source'] or 'HERE'
         source = self.find_target(source_alias)
-        player.add_to_inventory(source.remove_item())
+        player.add_item(source.remove_item())
 
     def find_target(self, target_alias):
         target_queue = Queue()
+        target_queue.put(self.player)
         target_queue.put(self.current_room)
         while not target_queue.empty():
             possible_match = target_queue.get()
