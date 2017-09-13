@@ -5,7 +5,8 @@ class ParsedLine:
             "GO" : actions.GoAction,
             "LOOK" : actions.LookAction,
             "TALK" : actions.TalkAction,
-#            "GET" : actions.GetAction,
+            "GET" : actions.GetAction,
+            "PUT" : actions.PutAction,
 #            "HELP" : actions.HelpAction,
             "QUIT" : actions.QuitAction
             }

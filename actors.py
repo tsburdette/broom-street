@@ -20,7 +20,7 @@ class Actor():
             method(**kwargs)
 
     def get_description(self):
-        print(self.description)
+        return self.description
 
     def fetch_dialogue(self):
         print("You would look awfully silly talking to this.")
@@ -54,14 +54,17 @@ class Room(Actor):
     def __str__(self):
         # people should be a list of names in the room? Maybe return a person's idle sentence?
         people_format_string = '\n'.join(['{:}' for person in self.people])
+        # item formatting should be a comma-separated list of items
+        item_format_string = ', '.join(['{:}' for item in self.inventory])
         # exit formatting should return the direction, ex. 'Exits are: West, North, Door'
         exit_format_string = ', '.join(['{:}' for exit in self.exits.keys()])
         hyphen_string = "-----------------------------"
         return ("{}\n{}\n{}\n{}\n\n".format(hyphen_string,
                                       self.name,
                                       hyphen_string,
-                                      self.description) + 
+                                      self.description) +
                 people_format_string.format(*self.people) +
+                "\nYou see here: " + item_format_string.format(*self.inventory) +
                 "\nExits are: " + exit_format_string.format(*self.exits.keys()))
 
     def get_next_room(self, direction):

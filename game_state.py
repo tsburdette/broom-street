@@ -38,8 +38,15 @@ class Game:
 
     def get_item(self, arg_dict):
         source_alias = arg_dict['source'] or 'HERE'
+        item_alias = arg_dict['target']
         source = self.find_target(source_alias)
-        player.add_item(source.remove_item())
+        self.player.add_item(source.remove_item(item_alias))
+
+    def put_item(self, arg_dict):
+        destination_alias = arg_dict['destination'] or 'HERE'
+        item_alias = arg_dict['target']
+        destination = self.find_target(destination_alias)
+        destination.add_item(self.player.remove_item(item_alias))
 
     def find_target(self, target_alias):
         target_queue = Queue()
