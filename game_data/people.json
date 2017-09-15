@@ -2,7 +2,7 @@
 	"LISA" : {
 		"name" : "Lisa, the Witch",
 		"idle_text" : "is sweeping the front of her shop dutifully with a wiry broom.",
-		"description" : "Lisa is a witch who manages her shop.",
+		"description" : "Lisa is more sensibly dressed than her sister, probably because unlike Persephone, she had a choice in the matter. Her wispy blonde hair is cut close below her ears, ends curling under her chin where typically a coy smile lives. Dressed in a loose shirt unbuttoned just so and pants tied tightly around her waist, yet another difference between the sisters is made clear. Lisa, in addition to getting most of the good cheer, seems to have gotten most of the good curves as well. It's actually quite hard to ignore!",
 		"inventory" : [],
 		"aliases" : [ "LISA", "LISA, THE WITCH", "THE WITCH", "WITCH" ]
 	},
@@ -12,5 +12,19 @@
 		"description" : "Hector is always working when you come to the station. Does he ever go home?",
 		"inventory" : [],
 		"aliases" : [ "HECTOR", "HECTOR, THE CONDUCTOR", "THE CONDUCTOR", "CONDUCTOR" ]
-	}
+	},
+    "PERSEPHONE" : {
+        "name" : "Persephone, Lisa's Little Sister",
+        "idle_text" : "is sweeping in front of her sister's shop and looking none too pleased about it.",
+        "description" : "Even dressed in a stereotypical witch outfit: black hat and dress and even a tiny stuffed cat on her shoulder, Persephone strongly resembles her older sister, albeit with distinct differences she'll be the first to point out. Unlike her sister's honey-blonde hair cropped short, Persephone's raven-black locks cascade down her shoulders to end at the small of her waist, which, together with her outfit and delicate, pretty features, would make her an ideal mascot to invite customers into the shop were it not for the dour glare she gives everyone in range.",
+        "inventory" : [],
+        "aliases" : [ "PERSEPHONE", "PERSEPHONE, LISA'S LITTLE SISTER", "THE WITCH", "WITCH" ]
+    },
+    "MIHORI" : {
+        "name" : "Mihori, Short but Cheerful",
+        "idle_text" : "is standing behind the counter on a stool and humming a happy tune.",
+        "description" : "Despite standing on a stool just to see over the counter and being hidden behind a veritable forest of plants, Mihori's exuberant expression is like a lighthouse from afar. Her shock of red curls sit under a dusty, far-too-large pointed hat stained various colors from handling herbs, and freckles adorn a face eternally glowing with a smile.",
+        "inventory" : [],
+        "aliases" : [ "MIHORI", "MIHORI, SHORT BUT CHEERFUL", "SHOPKEEPER" ]
+    }
 }

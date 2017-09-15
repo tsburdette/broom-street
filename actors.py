@@ -80,10 +80,10 @@ class Person(Actor):
         self.is_container = True
 
     def __str__(self):
-        return "{} {}".format(self.name, self.idle_text)
+        return "{}, {}".format(self.name, self.idle_text)
 
     def get_description(self):
-        return "{}, {}".format(self.name, self.description)
+        return self.description
 
     def dialogue_mode(self):
         # Open dialog file for the given person

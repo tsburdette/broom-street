@@ -1,16 +1,37 @@
 {
-	"STREET" : {
-		"name" : "Broom Street",
-		"description" : "A quiet neighborhood street out of the way of the usual city hustle and bustle.",
+	"E_STREET" : {
+		"name" : "East Broom Street",
+		"description" : "The east end of Broom Street dead-ends into an ivy-laced brick wall bookended on either side by two shops. To the north is Fortune Be Withy, Lisa's shop of all things witchcraft. Outside of Lisa's shop is her younger sister, Persephone, who invites customers in with a smile and a cheesy witch costume. To the south sits The Cinnamon Leaf, a shop devoted to herbs of all sorts as well as a number of other ingredients for medicine or culinary use. The spicy fragrance of fresh plant life spills out onto the street from open, glowing windows, pungent but inviting.",
 		"inventory" : [ "BUCKET" ],
-		"people" : [ "LISA" ],
-		"exits" : { "WEST" : "STATION" }
+		"people" : [ "PERSEPHONE" ],
+		"exits" : { "NORTH" : "WITHY", "SOUTH" : "LEAF", "WEST" : "M_STREET" }
 	},
+    "M_STREET" : {
+        "name" : "Central Broom Street",
+        "description" : "Just south of the station is a small thoroughfare quietly sheltered from the rest of the city's hustle and bustle. The streets here are aging, cracked and baked from heat, and ivy climbs up everything, but the few passersby on the street walk with a comforting smile. From the apartments across the street from the station, the sounds of rattling cookware and gleeful children can be heard at all hours of the day, and even a few cats snooze lazily on the brick wall next to the station.",
+        "inventory" : [],
+        "people" : [],
+        "exits" : { "NORTH" : "STATION", "EAST" : "E_STREET" }
+    },
+    "WITHY" : {
+        "name" : "Fortune Be Withy",
+        "description" : "Lisa's shop features cramped alleyways through shelves crowded with all sorts of witchly odds ends. Along the wall, stacked from floor to ceiling, all manner of books can be found in languages familiar and incomprehensible. A display of ritual daggers, mortar and pestle, divining tools, and other material foci sits in the center of the shop. And finally, in the back is a broad wooden countertop backed by shelves of pickled and jarred ingredients, some even still moving!",
+        "inventory" : [],
+        "people" : [ "LISA" ],
+        "exits" : { "SOUTH" : "E_STREET" }
+    },
+    "LEAF" : {
+        "name" : "The Cinnamon Leaf",
+        "description" : "Even from outside, the scent of bitter herbs and sweet aromatics mingle in an overwhelming atmosphere, but inside the shop, most customers faint on their first visit from the sheer variety of smells, to say nothing of the herbs that are firmly sealed. As if wandering through a thick rainforest, shelves of herbs in various states of powdering tower above, and beyond those, still growing plants line every walkway. At the back, a tall counter stands, wrapping around the entire back wall like a fortress battlement.",
+        "inventory" : [],
+        "people" : [ "MIHORI" ],
+        "exits" : { "NORTH" : "E_STREET" }
+    },
 	"STATION" : {
 		"name" : "Obakegawa Train Station",
-		"description" : "The train platform is supposedly haunted, but has anyone actually seen a ghost here?",
-		"inventory" :[ ],
+		"description" : "The mostly barren train platform serving Broom Street and its surrounding neighbors has garnered a bit of an unfair reputation. The train platform is supposedly haunted, but has anyone actually seen a ghost here? It's said that a mysterious unmanned train stops at the station at night, but it's also said that the ticket clerk likes to gossip and tell rumors, so aside from the name meaning \"River of Ghosts\" and a low clientelle, this could just be any other train platform.",
+		"inventory" : [],
 		"people" : [ "HECTOR" ],
-		"exits" : { "EAST" : "STREET" }
+		"exits" : { "SOUTH" : "M_STREET" }
 	}
 }
